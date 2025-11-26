@@ -23,9 +23,24 @@ Este projeto é um **backend Node.js** com **Express**, **MongoDB**, **Redis**, 
 - Testes de creation, listing e read
 - JWT gerado no teste
 
+---
+
 Execução:
 
 # 🔍 Testando a aplicação via Docker
+
+Configurar .env
+
+```bash
+
+PORT=3000
+MONGO_URI=mongodb://mongo:27017/notifications_db
+NODE_ENV=development
+JWT_SECRET=api-notification
+REDIS_HOST=redis
+REDIS_PORT=6379
+
+```
 
 Suba os containers e execute o seed de usuários
 
