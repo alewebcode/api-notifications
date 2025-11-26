@@ -7,7 +7,10 @@ import { AuthenticateMiddleware } from "./middlewares/authenticate";
 import { errorHandler } from "./middlewares/errorHandler";
 
 const app = express();
-connectDB();
+
+if (process.env.NODE_ENV !== "test") {
+  connectDB();
+}
 
 app.use(express.json());
 app.use(authRoutes);

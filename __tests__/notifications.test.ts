@@ -1,20 +1,25 @@
 import request from "supertest";
 import mongoose from "mongoose";
+import { MongoMemoryServer } from "mongodb-memory-server";
 import app from "../src/app";
 import { Notification } from "../src/models/Notification";
 import jwt from "jsonwebtoken";
 import { User } from "../src/models/User";
 
 describe("Notification tests", () => {
+  let mongoServer: MongoMemoryServer;
   let notificationId: string;
   let token: string;
   let userId: string;
 
   beforeAll(async () => {
-    await mongoose.disconnect();
-    await mongoose.connect("mongodb://localhost:27017/notifications_test");
+    mongoServer = await MongoMemoryServer.create();
+    const uri = mongoServer.getUri();
+
+    await mongoose.connect(uri);
   });
-  beforeAll(async () => {
+
+  beforeEach(async () => {
     await User.deleteMany({});
     await Notification.deleteMany({});
 
@@ -41,8 +46,8 @@ describe("Notification tests", () => {
   });
 
   afterAll(async () => {
-    await Notification.deleteMany({});
-    await mongoose.disconnect();
+    await mongoose.connection.close();
+    await mongoServer.stop();
   });
 
   it("should create a new notification", async () => {
