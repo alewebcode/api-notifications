@@ -36,6 +36,8 @@ REDIS_PORT=6379
 
 Suba os containers e execute o seed de usuários
 
+**Foram criados 2 usuários que são inseridos através do seed com o "user1@user1.com" e "user2@user2.com" ambos com a senha 123456**
+
 ```bash
 docker compose up -d
 docker compose exec app npm run seed:users
@@ -53,18 +55,12 @@ Testar API com Insomnia / Postman:
 
 ---
 
----
-
 # 🧪 Testes (Jest + Supertest + Mongo Memory Server)
 
 - Testes de integração com Mongo em memória
 - Testes de criacão de notificação e marcação de notificação como lida
 
-Para executar o teste basta executa o seguinte comando em seu ambiente local
-
-```bash
-npm run test
-```
+Para executar o teste basta seguir as instruções abaixo
 
 Configurar .env local
 
@@ -83,6 +79,16 @@ Executar local
 
 ```bash
 npm run dev
+```
+
+```bash
+
+docker compose -d
+
+```
+
+```bash
+npm run test
 ```
 
 ---
