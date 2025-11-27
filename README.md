@@ -8,20 +8,12 @@ Este projeto é um **backend Node.js** com **Express**, **MongoDB**, **Redis**, 
 
 - **Node.js + Express**
 - **TypeScript**
-- **MongoDB + Mongoose**
+- **MongoDB + Mongoose + Mongo Memory Server**
 - **Redis (ioredis)**
 - **JWT Autenticação**
 - **Zod** – validação de entrada
 - **Jest + Supertest**
 - **Docker + Docker Compose**
-
----
-
-# 🧪 Testes (Jest + Supertest + Mongo Memory Server)
-
-- Testes de integração com Mongo em memória
-- Testes de creation, listing e read
-- JWT gerado no teste
 
 ---
 
@@ -61,6 +53,40 @@ Testar API com Insomnia / Postman:
 
 ---
 
+---
+
+# 🧪 Testes (Jest + Supertest + Mongo Memory Server)
+
+- Testes de integração com Mongo em memória
+- Testes de criacão de notificação e marcação de notificação como lida
+
+Para executar o teste basta executa o seguinte comando em seu ambiente local
+
+```bash
+npm run test
+```
+
+Configurar .env local
+
+```bash
+
+PORT=3000
+MONGO_URI=mongodb://localhost:27017/notifications_db
+NODE_ENV=development
+JWT_SECRET=api-notification
+REDIS_HOST=localhost
+REDIS_PORT=6379
+
+```
+
+Executar local
+
+```bash
+npm run dev
+```
+
+---
+
 # 📘 Conclusão
 
 Este backend fornece:
@@ -68,7 +94,7 @@ Este backend fornece:
 - CRUD completo de notificações
 - Soft delete
 - Paginação
-- Contagem otimizada com Redis
+- Contagem com Redis
 - Validação com Zod
 - Testes com Jest + Supertest + Memory Server
 - Docker completo com Mongo e Redis
