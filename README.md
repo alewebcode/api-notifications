@@ -1,4 +1,4 @@
-# 📬 Api Notification - Backend
+# 📬 Api Notificação - Backend
 
 Este projeto é um **backend Node.js** com **Express**, **MongoDB**, **Redis**, **Docker**, autenticação JWT, notificações e testes. Abaixo está um guia completo com todas as configurações implementadas até agora.
 
